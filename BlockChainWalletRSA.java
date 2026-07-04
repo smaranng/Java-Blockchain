@@ -20,10 +20,10 @@ public class BlockChainWalletRSA {
    		byte[] tr = transaction.getBytes("UTF-8");
    		System.out.println("\nTransaction: "+transaction);
    		
-   		Signature ecdsa = Signature.getInstance("SHA256withRSA");
-   		ecdsa.initSign(keypair.getPrivate());
-   		ecdsa.update(transaction.getBytes("UTF-8"));
-   		String signature = Base64.getEncoder().encodeToString(ecdsa.sign());
+   		Signature rsa = Signature.getInstance("SHA256withRSA");
+   		rsa.initSign(keypair.getPrivate());
+   		rsa.update(transaction.getBytes("UTF-8"));
+   		String signature = Base64.getEncoder().encodeToString(rsa.sign());
    		System.out.println("Signature (Base64): "+signature);
    		
    		Signature verifysign = Signature.getInstance("SHA256withRSA");
